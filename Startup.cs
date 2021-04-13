@@ -43,6 +43,8 @@ namespace cJobs
             services.AddTransient<JobsRepository>();
             services.AddTransient<ContractorsService>();
             services.AddTransient<ContractorsRepository>();
+            services.AddTransient<ContractorJobsService>();
+            services.AddTransient<ContractorJobsRepository>();
         }
 
         private IDbConnection CreateDbConnection()

@@ -44,5 +44,16 @@ namespace cJobs.Repositories
             _db.Execute(sql, new { id });
             return;
         }
+
+        internal IEnumerable<ContractorJobViewModel> GetJobsByContractorId(int id)
+        {
+            string sql = @"SELECT 
+            j.*,
+            cj.id AS ContractorJobId
+            FROM contractorjobs cj
+            JOIN jobs j ON j.id = cj.jobId
+            WHERE contractorId = @id;";
+            return _db.Query<ContractorJobViewModel>(sql, new { id });
+        }
     }
 }
