@@ -33,5 +33,12 @@ namespace cJobs.Services
         {
             return _repo.Create(newJob);
         }
+
+        internal Job Delete(int id)
+        {
+            Job original = GetById(id);
+            _repo.Delete(id);
+            return original;
+        }
     }
 }

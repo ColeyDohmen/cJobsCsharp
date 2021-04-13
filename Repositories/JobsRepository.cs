@@ -37,5 +37,12 @@ namespace cJobs.Repositories
             newJob.Id = id;
             return newJob;
         }
+
+        internal void Delete(int id)
+        {
+            string sql = "DELETE FROM jobs WHERE id = @id;";
+            _db.Execute(sql, new { id });
+            return;
+        }
     }
 }

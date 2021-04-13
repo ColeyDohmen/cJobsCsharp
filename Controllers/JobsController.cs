@@ -56,5 +56,18 @@ namespace cJobs.Controllers
                 return BadRequest(err.Message);
             }
         }
+
+        [HttpDelete("{id}")]
+        public ActionResult<Job> Delete(int id)
+        {
+            try
+            {
+                return Ok(_service.Delete(id));
+            }
+            catch (System.Exception err)
+            {
+                return BadRequest(err.Message);
+            }
+        }
     }
 }
