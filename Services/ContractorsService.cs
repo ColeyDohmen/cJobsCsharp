@@ -18,5 +18,19 @@ namespace cJobs.Services
         {
             return _repo.GetAll();
         }
+        internal Contractor GetById(int id)
+        {
+            var data = _repo.GetById(id);
+            if (data == null)
+            {
+                throw new Exception("Invalid Id Aye");
+            }
+            return data;
+        }
+
+        internal Contractor Create(Contractor newContractor)
+        {
+            return _repo.Create(newContractor);
+        }
     }
 }

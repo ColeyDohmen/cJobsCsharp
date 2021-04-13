@@ -28,5 +28,33 @@ namespace cJobs.Controllers
                 return BadRequest(err.Message);
             }
         }
+
+        [HttpGet("{id}")]
+        public ActionResult<Contractor> Get(int id)
+        {
+            try
+            {
+                return Ok(_service.GetById(id));
+            }
+            catch (System.Exception err)
+            {
+
+                return BadRequest(err.Message);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult<Contractor> Create([FromBody] Contractor newContractor)
+        {
+            try
+            {
+                return Ok(_service.Create(newContractor));
+            }
+            catch (System.Exception err)
+            {
+
+                return BadRequest(err.Message);
+            }
+        }
     }
 }

@@ -7,4 +7,10 @@ namespace cJobs.Models
 
         public string Location { get; set; }
     }
+
+    public class ContractorJobViewModel : Job
+    {
+        public int ContractorJobId { get; set; }
+
+    }
 }

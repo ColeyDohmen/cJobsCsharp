@@ -19,5 +19,24 @@ namespace cJobs.Repositories
             string sql = "SELECT * FROM contractors;";
             return _db.Query<Contractor>(sql);
         }
+
+        internal Contractor GetById(int id)
+        {
+            string sql = "SELECT * FROM contractors WHERE id = @id;";
+            return _db.QueryFirstOrDefault<Contractor>(sql, new { id });
+        }
+
+        internal Contractor Create(Contractor newContractor)
+        {
+            string sql = @"
+            INSERT INTO contractors
+            (id, company, description)
+            VALUES
+            (@Id, @Company, @Description);
+            SELECT LAST_INSERT_ID();";
+            int id = _db.ExecuteScalar<int>(sql, newContractor);
+            newContractor.Id = id;
+            return newContractor;
+        }
     }
 }

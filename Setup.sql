@@ -9,7 +9,7 @@ USE bloggrcoley;
 --   PRIMARY KEY (id)
 -- );
 
--- CREATE TABLE constructors
+-- CREATE TABLE contractors
 -- (
 --   id INT NOT NULL AUTO_INCREMENT,
 --   company VARCHAR(255) NOT NULL,
